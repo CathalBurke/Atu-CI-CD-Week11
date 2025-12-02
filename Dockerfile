@@ -1,8 +1,8 @@
-FROM eclipse-temurin:25-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Copy the already-built JAR from target/
+# Build the jar with Maven first, then copy it in
 COPY target/*.jar app.jar
 
-EXPOSE 8081
+EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
